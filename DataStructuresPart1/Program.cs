@@ -1,4 +1,6 @@
 ﻿using DataStructuresPart1;
+using System.Collections;
+using System.Diagnostics;
 
 /** Arrays, Struct and int
 string[] users = { "john", "Matt" };
@@ -84,17 +86,109 @@ Console.ReadLine();
 #endregion
 
 #region Bubble Sort
+//Collection numbers = new Collection();
+//Random random = new Random(100);
+//for (int i = 0; i <= 10; i++)
+//{
+//    numbers.Add((int)(random.NextDouble() * 100));
+//}
+//foreach (int i in numbers) 
+//    Console.WriteLine(i);
+//numbers.BubbleSort();
+//Console.WriteLine("----------------------------------");
+//foreach (int i in numbers)
+//    Console.WriteLine(i);
+//Console.ReadLine();
+#endregion
+
+#region Selection Sort
+//Collection numbers = new Collection();
+//Random random = new Random(80);
+
+//for (int i = 0; i <= 10; i++)
+//{
+//    numbers.Add((int)(random.NextDouble() * 100));
+//}
+//foreach (int i in numbers)
+//    Console.WriteLine(i);
+//numbers.SelectionSort();
+//Console.WriteLine("----------------------------------");
+//foreach (int i in numbers)
+//    Console.WriteLine(i);
+//Console.ReadLine();
+#endregion
+
+#region Merge Sort
+//Collection numbers = new Collection();
+//Random random = new Random(101);
+
+//for (int i = 0; i <= 10; i++)
+//{
+//    numbers.Add((int)(random.NextDouble() * 100));
+//}
+////Print before sorting
+//printArray(numbers);
+//Stopwatch stopwatch = Stopwatch.StartNew();
+//stopwatch.Start();
+////Sorting Array
+//numbers.MergeSort();
+//stopwatch.Stop();
+//Console.WriteLine($"Elapsed Time: {stopwatch.Elapsed}");
+
+////Print After sorting
+//printArray(numbers);
+//Console.ReadLine();
+#endregion
+
+#region Merge Sort
+//Collection numbers = new Collection();
+//Random random = new Random(101);
+
+//for (int i = 0; i <= 10; i++)
+//{
+//    numbers.Add((int)(random.NextDouble() * 100));
+//}
+////Print before sorting
+//printArray(numbers);
+//Stopwatch stopwatch = Stopwatch.StartNew();
+//stopwatch.Start();
+////Sorting Array
+//numbers.InsertionSort();
+//stopwatch.Stop();
+//Console.WriteLine($"Elapsed Time: {stopwatch.Elapsed}");
+
+////Print After sorting
+//printArray(numbers);
+//Console.ReadLine();
+#endregion
+
+#region Left Rotation of Array by 1
 Collection numbers = new Collection();
-Random random = new Random(100);
+Random random = new Random(101);
+
 for (int i = 0; i <= 10; i++)
 {
     numbers.Add((int)(random.NextDouble() * 100));
 }
-foreach (int i in numbers) 
-    Console.WriteLine(i);
-numbers.BubbleSort();
-Console.WriteLine("----------------------------------");
-foreach (int i in numbers)
-    Console.WriteLine(i);
+//Print before sorting
+printArray(numbers);
+Stopwatch stopwatch = Stopwatch.StartNew();
+stopwatch.Start();
+//Sorting Array
+numbers.LeftRotationByOne();
+stopwatch.Stop();
+Console.WriteLine($"Elapsed Time: {stopwatch.Elapsed}");
+
+//Print After sorting
+printArray(numbers);
 Console.ReadLine();
 #endregion
+
+static void printArray(Collection list)
+{
+    Console.WriteLine("----------------------------------");
+    string printData = "";
+    foreach (int i in list) printData += ", " + i;
+
+    Console.WriteLine(printData);
+}
