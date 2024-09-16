@@ -31,17 +31,17 @@ namespace DataStructuresPart1
 
         public void BubbleSort()
         {
-            int upper = Count()-1;
+            int upper = Count() - 1;
             object temp;
-            for (int outer = upper; outer >=1; outer--)
+            for (int outer = upper; outer >= 1; outer--)
             {
-                for (int inner = 0; inner <=outer-1; inner++)
+                for (int inner = 0; inner <= outer - 1; inner++)
                 {
                     if ((int)InnerList[inner] > (int)InnerList[inner + 1])
                     {
                         temp = InnerList[inner];
-                        InnerList[inner] = InnerList[inner+1];
-                        InnerList[inner+1] = temp;
+                        InnerList[inner] = InnerList[inner + 1];
+                        InnerList[inner + 1] = temp;
                     }
                 }
             }
@@ -49,12 +49,12 @@ namespace DataStructuresPart1
 
         public void SelectionSort()
         {
-            int upper = Count()-1;
+            int upper = Count() - 1;
             object temp;
-            for(int outer = 0; outer <= upper; outer++)
+            for (int outer = 0; outer <= upper; outer++)
             {
                 int min = outer;
-                for(int inner = outer+1; inner <= upper; inner++)
+                for (int inner = outer + 1; inner <= upper; inner++)
                 {
                     if ((int)InnerList[min] > (int)InnerList[inner])
                         min = inner;
@@ -76,8 +76,8 @@ namespace DataStructuresPart1
 
         private static ArrayList MergeSort(ArrayList unSortedList)
         {
-           // Console.WriteLine("----------------unSortedList------------------");
-          //  printArray(unSortedList);
+            // Console.WriteLine("----------------unSortedList------------------");
+            //  printArray(unSortedList);
             if (unSortedList.Count <= 1)
             {
                 return unSortedList;
@@ -87,7 +87,7 @@ namespace DataStructuresPart1
             ArrayList firstHalf = new ArrayList();
             ArrayList secondHalf = new ArrayList();
 
-            for (int i = 0;i<mid; i++)
+            for (int i = 0; i < mid; i++)
             {
                 firstHalf.Add(unSortedList[i]);
             }
@@ -107,12 +107,12 @@ namespace DataStructuresPart1
 
         private static ArrayList MergeSort(ArrayList firstHalf, ArrayList secondHalf)
         {
-           
+
 
             ArrayList sorted = new ArrayList();
-            while (firstHalf.Count > 0 || secondHalf.Count>0)
+            while (firstHalf.Count > 0 || secondHalf.Count > 0)
             {
-                if(firstHalf.Count > 0 && secondHalf.Count > 0)
+                if (firstHalf.Count > 0 && secondHalf.Count > 0)
                 {
                     if ((int)firstHalf[0] < (int)secondHalf[0])
                     {
@@ -135,11 +135,11 @@ namespace DataStructuresPart1
                     sorted.Add(secondHalf[0]);
                     secondHalf.RemoveAt(0);
                 }
-               
+
             }
-            
-          //  Console.WriteLine("----------------sorted------------------");
-          //  printArray(sorted);
+
+            //  Console.WriteLine("----------------sorted------------------");
+            //  printArray(sorted);
             return sorted;
         }
         private static void printArray(ArrayList list)
@@ -153,19 +153,19 @@ namespace DataStructuresPart1
 
         internal void InsertionSort()
         {
-            for (int i = 1;i<InnerList.Count;i++)
+            for (int i = 1; i < InnerList.Count; i++)
             {
                 object temp;
-                if ((int)InnerList[i-1] > (int) InnerList[i])
+                if ((int)InnerList[i - 1] > (int)InnerList[i])
                 {
-                    for(int k = i; k >= 0; k--)
+                    for (int k = i; k >= 0; k--)
                     {
                         temp = InnerList[k];
-                        
-                        if (k > 0 && (int)temp < (int)InnerList[k-1])
+
+                        if (k > 0 && (int)temp < (int)InnerList[k - 1])
                         {
-                            printArray(InnerList);
-                            Console.WriteLine($"Current temp: {temp}");
+                            //  printArray(InnerList);
+                            //   Console.WriteLine($"Current temp: {temp}");
 
                             InnerList[k] = InnerList[k - 1];
                             InnerList[k - 1] = temp;
@@ -178,11 +178,32 @@ namespace DataStructuresPart1
         internal void LeftRotationByOne()
         {
             object temp = InnerList[0];
-            for (int i = 0; i<InnerList.Count-1;i++)
+            for (int i = 0; i < InnerList.Count - 1; i++)
             {
-                InnerList[i] = InnerList[i+1];
+                InnerList[i] = InnerList[i + 1];
             }
-            InnerList[InnerList.Count-1] = temp;
+            InnerList[InnerList.Count - 1] = temp;
+        }
+
+        internal void ShellSort()
+        {
+            for (int gap = InnerList.Count / 2; gap > 0; gap /= 2)
+            {
+                for (int i = 0; i < InnerList.Count - gap; i++)
+                {
+
+                    object temp;
+                    for (int k = i; k >= 0 && (int)InnerList[k] > (int)InnerList[k + gap]; k = k - gap)
+                    {
+                        temp = InnerList[k];
+                        InnerList[k] = InnerList[k + gap];
+                        InnerList[k + gap] = temp;
+                        //  Console.WriteLine($"gap: {gap}, i: {i}, k: {k}");
+                        //   printArray(InnerList);
+                    }
+
+                }
+            }
         }
     }
 }

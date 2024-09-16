@@ -140,7 +140,7 @@ Console.ReadLine();
 //Console.ReadLine();
 #endregion
 
-#region Merge Sort
+#region Insertion Sort
 //Collection numbers = new Collection();
 //Random random = new Random(101);
 
@@ -162,11 +162,11 @@ Console.ReadLine();
 //Console.ReadLine();
 #endregion
 
-#region Left Rotation of Array by 1
+#region Shell Sort
 Collection numbers = new Collection();
-Random random = new Random(101);
+Random random = new Random(1001);
 
-for (int i = 0; i <= 10; i++)
+for (int i = 0; i <= 130; i++)
 {
     numbers.Add((int)(random.NextDouble() * 100));
 }
@@ -175,13 +175,35 @@ printArray(numbers);
 Stopwatch stopwatch = Stopwatch.StartNew();
 stopwatch.Start();
 //Sorting Array
-numbers.LeftRotationByOne();
+numbers.ShellSort();
 stopwatch.Stop();
 Console.WriteLine($"Elapsed Time: {stopwatch.Elapsed}");
 
 //Print After sorting
 printArray(numbers);
 Console.ReadLine();
+#endregion
+
+#region Left Rotation of Array by 1
+//Collection numbers = new Collection();
+//Random random = new Random(101);
+
+//for (int i = 0; i <= 10; i++)
+//{
+//    numbers.Add((int)(random.NextDouble() * 100));
+//}
+////Print before sorting
+//printArray(numbers);
+//Stopwatch stopwatch = Stopwatch.StartNew();
+//stopwatch.Start();
+////Sorting Array
+//numbers.LeftRotationByOne();
+//stopwatch.Stop();
+//Console.WriteLine($"Elapsed Time: {stopwatch.Elapsed}");
+
+////Print After sorting
+//printArray(numbers);
+//Console.ReadLine();
 #endregion
 
 static void printArray(Collection list)
