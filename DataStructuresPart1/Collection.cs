@@ -144,11 +144,12 @@ namespace DataStructuresPart1
         }
         private static void printArray(ArrayList list)
         {
-            Console.WriteLine("----------------------------------");
             string printData = "";
             foreach (int i in list) printData += ", " + i;
 
             Console.WriteLine(printData);
+            Console.WriteLine("----------------------------------");
+
         }
 
         internal void InsertionSort()
@@ -204,6 +205,84 @@ namespace DataStructuresPart1
 
                 }
             }
+        }
+
+        internal void QuickSort()
+        {
+            int pivot = (int)InnerList[0];
+            int start = 0;
+            int end = InnerList.Count - 1;
+            QuickSort(start, end);
+        }
+
+        private void QuickSort(int lower, int upper)
+        {
+            if (lower < upper)
+            {
+                int pivot = (int)InnerList[lower];
+                int start = lower;
+                int end = upper;
+                object temp;
+                while (start < end)
+                {
+                    while (start < upper && (int)InnerList[start] <= pivot) start++;
+                    while (lower < end && (int)InnerList[end] > pivot) end--;
+
+                    if (start < end)
+                    {
+                        temp = InnerList[start];
+                        InnerList[start] = InnerList[end];
+                        InnerList[end] = temp;
+                    }
+                }
+
+                temp = InnerList[lower];
+                InnerList[lower] = InnerList[end];
+                InnerList[end] = temp;
+
+                QuickSort(lower, end - 1);
+
+                QuickSort(end + 1, upper);
+            }
+        }
+
+        internal bool SequentialSerach(int v)
+        {
+            for(int i=0; i<InnerList.Count; i++)
+            {
+                if ((int)InnerList[i]==v) return true;
+            }
+            return false;
+        }
+
+        internal bool BinarySearch(int v)
+        {
+            int lowerBound = 0;
+            int upperBound = InnerList.Count - 1;
+            int mid = (upperBound+lowerBound)/ 2;
+
+            while (lowerBound <= upperBound)
+            {
+                mid = (upperBound + lowerBound) / 2;
+                if ((int)InnerList[mid] == v) return true;
+                else if((int)InnerList[mid]<v) lowerBound=mid+1;
+                else if ((int)InnerList[mid] > v) upperBound=mid-1;
+            }
+            return false;
+
+        }
+
+        internal bool RBinarySearch(int v, int lb, int ub)
+        {
+            if (lb <= ub)
+            {
+                int mid = (lb + ub) / 2;
+                if ((int)InnerList[mid] == v) return true;
+                else if ((int)InnerList[mid] < v ) return RBinarySearch(v, mid + 1, ub);
+                else if ((int)InnerList[mid] > v) return RBinarySearch(v, lb, mid - 1);
+
+            }
+                return false;
         }
     }
 }
