@@ -382,28 +382,59 @@ Console.ReadLine();
 
 #region Hashtable
 
-Hashtable symbols = new Hashtable(25);
+//Hashtable symbols = new Hashtable(25);
 
-symbols.Add("salary", 10000);
-symbols.Add("name", "Davis");
-symbols.Add("age", 45);
-symbols.Add("dept", "Information Technology");
-symbols.Add("gender", "Male");
+//symbols.Add("salary", 10000);
+//symbols.Add("name", "Davis");
+//symbols.Add("age", 45);
+//symbols.Add("dept", "Information Technology");
+//symbols.Add("gender", "Male");
 
-Console.WriteLine("The keys are: ");
-foreach (var key in symbols.Keys)
-    Console.WriteLine(key);
-Console.WriteLine();
+//Console.WriteLine("The keys are: ");
+//foreach (var key in symbols.Keys)
+//    Console.WriteLine(key);
+//Console.WriteLine();
 
-Console.WriteLine("The values are: ");
-foreach (var val in symbols.Values)
-    Console.WriteLine(val);
-Console.WriteLine();
+//Console.WriteLine("The values are: ");
+//foreach (var val in symbols.Values)
+//    Console.WriteLine(val);
+//Console.WriteLine();
 
-Console.WriteLine("The Data is: ");
-foreach (var symbol in symbols)
-    Console.WriteLine(symbol);
-Console.WriteLine();
+//Console.WriteLine("The Data is: ");
+//foreach (var symbol in symbols)
+//    Console.WriteLine(symbol);
+//Console.WriteLine();
+#endregion
+
+#region Linked List (Doubly, Circuler)
+//System.Collections.Generic.LinkedList<string> names = new System.Collections.Generic.LinkedList<string>();
+
+//LinkedListNode<string> node = new LinkedListNode<string>("John");
+//LinkedListNode<string> node1 = new LinkedListNode<string>("Matt");
+//LinkedListNode<string> node2 = new LinkedListNode<string>("Mike");
+
+//names.AddFirst(node);
+//names.AddAfter(node, node1);
+//names.AddAfter(node1, node2);
+
+//LinkedListNode<string> aNode = names.First;
+//while (aNode is not null)
+//{
+//    Console.WriteLine(aNode.Value);
+//    aNode = aNode.Next;
+//}
+//Console.WriteLine();
+
+//aNode = names.Find("Matt");
+//if (aNode is null)
+//    aNode = names.First;
+
+//while (aNode is not null)
+//{
+//    Console.WriteLine(aNode.Value);
+//    aNode = aNode.Next;
+//}
+
 #endregion
 
 #region Left Rotation of Array by 1
@@ -428,7 +459,29 @@ Console.WriteLine();
 //Console.ReadLine();
 #endregion
 
+#region Binary Tree
+BinarySearchTree nums = new BinarySearchTree();
+nums.Insert(23);
+nums.Insert(45);
+nums.Insert(16);
+nums.Insert(37);
+nums.Insert(3);
+nums.Insert(99);
+nums.Insert(22);
 
+Console.WriteLine("Inorder traversal");
+nums.InOrder(nums.root);
+Console.WriteLine();
+
+Console.WriteLine("PreOrder traversal");
+nums.PreOrder(nums.root);
+Console.WriteLine();
+
+Console.WriteLine("PostOrder traversal");
+nums.PostOrder(nums.root);
+Console.WriteLine();
+
+#endregion
 
 static void printArray(Collection list)
 {
