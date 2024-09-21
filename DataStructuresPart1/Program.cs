@@ -85,7 +85,7 @@ Console.ReadLine();
 //Console.ReadLine();
 #endregion
 
-#region Bubble Sort
+#region Bubble Sort SC: O(1), TC: O(n^2)
 //Collection numbers = new Collection();
 //Random random = new Random(100);
 //for (int i = 0; i <= 10; i++)
@@ -101,7 +101,7 @@ Console.ReadLine();
 //Console.ReadLine();
 #endregion
 
-#region Selection Sort
+#region Selection Sort SC: O(1), TC: O(n^2)
 //Collection numbers = new Collection();
 //Random random = new Random(80);
 
@@ -118,7 +118,7 @@ Console.ReadLine();
 //Console.ReadLine();
 #endregion
 
-#region Merge Sort
+#region Merge Sort SC: O(n), TC: O(n log n)
 //Collection numbers = new Collection();
 //Random random = new Random(101);
 
@@ -140,7 +140,7 @@ Console.ReadLine();
 //Console.ReadLine();
 #endregion
 
-#region Insertion Sort
+#region Insertion Sort SC: O(1), TC: O(n^2)
 //Collection numbers = new Collection();
 //Random random = new Random(101);
 
@@ -162,7 +162,7 @@ Console.ReadLine();
 //Console.ReadLine();
 #endregion
 
-#region Shell Sort
+#region Shell Sort SC: O(1), TC: O(n log n) to O(n^3/2) 
 //Collection numbers = new Collection();
 //Random random = new Random(1001);
 
@@ -480,6 +480,11 @@ Console.WriteLine();
 Console.WriteLine("PostOrder traversal");
 nums.PostOrder(nums.root);
 Console.WriteLine();
+
+Console.WriteLine("Max: " + nums.FindMax());
+Console.WriteLine("Min: " + nums.FindMin());
+Console.WriteLine("Find: " + nums.Find(32));
+
 
 #endregion
 

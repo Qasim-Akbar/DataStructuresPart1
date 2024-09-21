@@ -14,7 +14,7 @@ namespace DataStructuresPart1
 
         public void DisplayNode()
         {
-            Console.WriteLine(Data + " ");
+            Console.Write(Data + " ");
         }
     }
 
@@ -71,11 +71,6 @@ namespace DataStructuresPart1
                 level += 1;
             }
             return level;
-        }
-
-        public int CheckMaxLevel(Node theRoot)
-        {
-
         }
 
         //Low to high (Asc Order)

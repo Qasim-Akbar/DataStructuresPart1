@@ -47,6 +47,32 @@ namespace DataStructuresPart1
             }
         }
 
+        public void OptimizedBubbleSort()
+        {
+            int upper = Count() - 1;
+            object temp;
+            bool swapped;
+
+            for (int outer = upper; outer >= 1; outer--)
+            {
+                swapped = false;
+                for (int inner = 0; inner <= outer - 1; inner++)
+                {
+                    if ((int)InnerList[inner] > (int)InnerList[inner + 1])
+                    {
+                        temp = InnerList[inner];
+                        InnerList[inner] = InnerList[inner + 1];
+                        InnerList[inner + 1] = temp;
+                        swapped = true;  // A swap was made, so the list might still be unsorted
+                    }
+                }
+                if (!swapped)
+                {
+                    break;  // No swaps made, so the list is already sorted
+                }
+            }
+        }
+
         public void SelectionSort()
         {
             int upper = Count() - 1;
@@ -142,6 +168,7 @@ namespace DataStructuresPart1
             //  printArray(sorted);
             return sorted;
         }
+
         private static void printArray(ArrayList list)
         {
             string printData = "";
@@ -188,9 +215,9 @@ namespace DataStructuresPart1
 
         internal void ShellSort()
         {
-            for (int gap = InnerList.Count / 2; gap > 0; gap /= 2)
+            for (int gap = InnerList.Count / 2; gap > 0; gap /= 2) // Log n
             {
-                for (int i = 0; i < InnerList.Count - gap; i++)
+                for (int i = 0; i < InnerList.Count - gap; i++) // O(n)
                 {
 
                     object temp;
